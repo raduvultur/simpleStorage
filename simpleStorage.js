@@ -287,7 +287,7 @@
             return _save();
         },
 
-        get: function(key){
+        get: function(key, def){
             if(!_storage){
                 return false;
             }
@@ -298,6 +298,8 @@
                     return _storage[key];
                 }
             }
+            
+            return typeof (def) == "undefined" ? null : def;
         },
 
         deleteKey: function(key){
